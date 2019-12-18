@@ -27,9 +27,9 @@ export function formatMoney(value) {
     return `${integerResult}${!!decimal ? `.${decimal}` : ""}`;
 }
 
-export function getLastThreeDates() {
+export function getLastNDates(n) {
     let result = [];
-    for(let i = 1; i <= 3; i++) {
+    for(let i = 1; i <= n; i++) {
         const date = new Date();
         date.setDate(date.getDate() - i);
         const year = date.getFullYear();

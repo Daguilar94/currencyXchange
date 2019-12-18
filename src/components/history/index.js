@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { access_key, lastThreeDays } from '../../constants';
-import { getHistoryUrl, getLastThreeDates, buildLastDaysState } from '../../utils';
+import { getHistoryUrl, getLastNDates, buildLastDaysState } from '../../utils';
 
 export default () => {
     const [loadingHistory, setLoadingHistory] = useState(false);
@@ -9,7 +9,7 @@ export default () => {
     useEffect(() => {
         setLoadingHistory(true);
         // Promise.all(
-        //     getLastThreeDates()
+        //     getLastNDates(3)
         //     .map(date => axios.get(getHistoryUrl(date),{ params: { access_key } }))
         // )
         new Promise(resolve => setTimeout(() => resolve(lastThreeDays), 2000))
