@@ -1,20 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
+import axios from 'axios';
 import Header from './components/header';
-import Quote from './components/quote/';
-import History from './components/history/';
+import Quote from './containers/quote/';
+import History from './containers/history/';
 import Footer from './components/footer';
 import './App.css';
-import axios from 'axios';
+import { currencies } from './constants';
 
 axios.defaults.params = {}
 axios.defaults.params['access_key'] = '31ab9c10883dbeebcc701af076baad09';
 
 function App() {
+  const [sourceCurrency] = useState(currencies.EUR);
+  const [targetCurrency] = useState(currencies.USD);
+
   return (
     <div className="App">
       <Header />
-      <Quote />
-      <History />
+      <Quote sourceCurrency={sourceCurrency} targetCurrency={targetCurrency} />
+      <History sourceCurrency={sourceCurrency}/>
       <Footer />
     </div>
   );

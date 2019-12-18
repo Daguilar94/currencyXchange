@@ -24,7 +24,7 @@ export function formatMoney(value) {
         integerResult = "0";
     }
 
-    return `${integerResult}${!!decimal ? `.${decimal}` : ""}`;
+    return `${integerResult}${!!decimal ? `.${decimal}` : ".00"}`;
 }
 
 export function getLastNDates(n) {
@@ -40,7 +40,7 @@ export function getLastNDates(n) {
     return result;
 }
 
-export function buildLastDaysState(days) {
+export function buildRateHisrotyState(days) {
     return days.reduce((accum, { data }) => ({ ...accum, [data.date]: data.rates }), {});
 }
 

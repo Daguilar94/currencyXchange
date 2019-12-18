@@ -8,8 +8,6 @@ import {
 } from './actions';
 
 export const initialQuoteState = {
-    sourceCurrency: currencies.EUR,
-    targetCurrency: currencies.USD,
     loadingRates: false,
     currencyRates: {},
     ratesError: false,

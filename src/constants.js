@@ -673,6 +673,18 @@ export const currencies = {
     }
 }
 
+export const historyCurrencies = [
+  "AFN",
+  "COP",
+  "INR",
+  "JMD",
+  "KES",
+  "KRW",
+  "USD",
+  "XAF",
+  "ZWL"
+]
+
 export const ratesExpirationMiliSecs = 600000;
 export const ratesUrl = "http://data.fixer.io/api/latest";
 export const access_key = '31ab9c10883dbeebcc701af076baad09';
@@ -848,7 +860,7 @@ export const latestRates = {
   "ZMK": 10021.486463,
   "ZMW": 16.213184,
   "ZWL": 358.49868
-} 
+}
 
 export const lastThreeDays = [
 {

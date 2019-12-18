@@ -24,7 +24,7 @@ export function updateMoneyField(field, value) {
     return {
         type: SET_MONEY_FIELD,
         field,
-        value 
+        value
     };
 };
 

@@ -11,7 +11,7 @@ import {
     setLoadingRates
 } from './actions';
 
-export default () => {
+export default ({ sourceCurrency, targetCurrency}) => {
     const [state, dispatch] = useReducer(reducer, initialQuoteState);
 
     useEffect(() => {
@@ -23,12 +23,7 @@ export default () => {
         if (!state.updatedMoneyRates) {
             await refreshRates();
         }
-        const {
-            sourceCurrency,
-            targetCurrency,
-            currencyRates,
-            sourceValue
-        } = state;
+        const { currencyRates, sourceValue } = state;
 
         const actualRate = currencyRates[targetCurrency.name] / currencyRates[sourceCurrency.name];
         const sourceNumber = Number(unFormatMoney(sourceValue));
@@ -55,19 +50,19 @@ export default () => {
         <div className="quote">
             <span>{state.loadingRates ? "Loading..." : ""}</span>
             <form action="">
-                {state.targetCurrency.sign}
+                {targetCurrency.sign}
                 <input
                     type="text"
                     disabled
-                    placeholder={state.targetCurrency.name}
+                    placeholder={targetCurrency.name}
                     value={state.targetValue}
                 />
 
-                {state.sourceCurrency.sign}
+                {sourceCurrency.sign}
                 <input
                     disabled={state.loadingRates}
                     type="text"
-                    placeholder={state.sourceCurrency.name}
+                    placeholder={sourceCurrency.name}
                     value={state.sourceValue}
                     onFocus={() => dispatch(
                         updateMoneyField("sourceValue", unFormatMoney(state.sourceValue))
@@ -90,5 +85,5 @@ export default () => {
                 </button>
             </form>
         </div>
-    )
+    );
 }
