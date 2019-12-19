@@ -8,7 +8,8 @@ export function unFormatMoney(value) {
 }
 
 export function formatMoney(value) {
-    const [integer = "", decimal = ""] = value.split(".");
+    let [integer = "", decimal = ""] = value.split(".");
+    integer = integer && String(parseInt(integer, 10));
     let integerResult = "";
     const integerLength = integer.length;
 
@@ -38,6 +39,13 @@ export function getLastNDates(n) {
         result.push(`${year}-${month}-${day}`);
     }
     return result;
+}
+
+export function calculateQuoteValue({ target, source, currencyRates, sourceValue }) {
+    const actualRate = currencyRates[target] / currencyRates[source];
+    const sourceNumber = Number(unFormatMoney(sourceValue));
+    const newTargetValue = formatMoney((sourceNumber * actualRate).toFixed(4).toString());
+    return newTargetValue;
 }
 
 export function buildRateHisrotyState(days) {

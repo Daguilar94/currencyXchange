@@ -1,4 +1,3 @@
-import { currencies } from '../../constants';
 import {
     SET_RATES,
     SET_MONEY_FIELD,

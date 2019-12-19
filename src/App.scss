@@ -1,0 +1,57 @@
+$max-width: 900px;
+$mobile-size: 768px;
+
+.money-exchange {
+    .spinner-container {
+        background-color: rgba(250, 250, 250, 0.616);
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: 1;
+
+        &__layover-spinner {
+            width: 100px;
+            height: 100px;
+        }
+    }
+
+    .quote {
+        &__form {
+            max-width: $max-width;
+        }
+    }
+
+    .history {
+        max-width: $max-width;
+
+        &__day {
+            text-align: left;
+            min-width: 210px;
+        }
+
+        &__rate {
+            .rate-separator {
+                height: 0;
+                border-top: 1px solid #d9dcdf;
+            }
+        }
+
+        @media screen and (max-width: $mobile-size) {
+            &__title {
+                text-align: center;
+            }
+
+            &__day {
+                text-align: center;
+                max-width: 280px;
+                margin: 0 auto;
+                padding: 10px 0;
+            }
+        }
+    }
+
+    .footer {
+        background-color: #e9ecef;
+    }
+}
