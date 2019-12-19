@@ -1,3 +1,5 @@
+import { ratesUrl } from './constants';
+
 export function isMoneyValueValid(value) {
     const moneyRegex = /^\d*\.?\d{0,4}$/;
     return moneyRegex.test(value);
@@ -52,4 +54,4 @@ export function buildRateHisrotyState(days) {
     return days.reduce((accum, { data }) => ({ ...accum, [data.date]: data.rates }), {});
 }
 
-export function getHistoryUrl(date) { return `http://data.fixer.io/api/${date}`; };
+export function getHistoryUrl(date) { return `${ratesUrl}${date}`; };

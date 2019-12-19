@@ -8,7 +8,7 @@ export const SET_UPDATED_RATES = "SET_UPDATED_RATES";
 export const SET_LOADING_RATES = "SET_LOADING_RATES";
 
 export function fetchRates() {
-    return axios.get(ratesUrl,{ params: { access_key } });
+    return axios.get(`${ratesUrl}latest`,{ params: { access_key } });
 };
 
 export function setLoadingRates(value) { return { type: SET_LOADING_RATES, value }};
