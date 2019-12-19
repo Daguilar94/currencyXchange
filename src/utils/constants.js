@@ -686,5 +686,5 @@ export const historyCurrencies = [
 ]
 
 export const ratesExpirationMiliSecs = 600000;
-export const ratesUrl = "http://data.fixer.io/api/latest";
+export const ratesUrl = "https://data.fixer.io/api/latest";
 export const access_key = '31ab9c10883dbeebcc701af076baad09';
